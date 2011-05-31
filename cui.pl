@@ -23,7 +23,7 @@ EOT
 	exit(2);
 }
 
-myterm::unset(POSIX::ICANON | POSIX::ECHO);
+
 
 # try to load the level
 
@@ -31,7 +31,7 @@ my $levelpack = "data/levels/".$ARGV[0].".pl";
 
 my ($level, $levelset, $error) = Guckets::Load::load($levelpack);
 die $! if (defined($error));
-
+myterm::unset(POSIX::ICANON | POSIX::ECHO);
 $| = 1;
 
 Guckets::CUI::PlayLevel::play($level) if (defined($level));
