@@ -1,0 +1,19 @@
+# vim:ft=perl
+
+$level = new Guckets::Level();
+$level->{author} = "Michael Kaemmerer";
+$level->{name} = "Level 1";
+
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 300));
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 50));
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 25));
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 10));
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 5));
+push(@{$level->{buckets}}, new Guckets::Bucket(0, 2));
+
+
+
+push(@{$level->{goals}}, Guckets::Goals::water(1, 297));
+
+
+$level->auto_spare_bucket();
