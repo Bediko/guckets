@@ -14,7 +14,7 @@ $SIG{INT} = $SIG{TERM} = sub {
 	exit(4);
 };
 
-myterm::unset(POSIX::ICANON | POSIX::ECHO);
+
 
 if (scalar(@ARGV) < 1) {
 	print << "EOT";
@@ -22,6 +22,8 @@ Usage: $0 <level>
 EOT
 	exit(2);
 }
+
+myterm::unset(POSIX::ICANON | POSIX::ECHO);
 
 # try to load the level
 my ($level, $levelset, $error) = Guckets::Load::load($ARGV[0]);
