@@ -26,7 +26,10 @@ EOT
 myterm::unset(POSIX::ICANON | POSIX::ECHO);
 
 # try to load the level
-my ($level, $levelset, $error) = Guckets::Load::load($ARGV[0]);
+
+my $levelpack = "data/levels/".$ARGV[0].".pl";
+
+my ($level, $levelset, $error) = Guckets::Load::load($levelpack);
 die $! if (defined($error));
 
 $| = 1;
